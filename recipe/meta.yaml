@@ -24,15 +24,16 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ stdlib('c') }}                # [not win]
-    - {{ posix }}filesystem        # [win]
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ stdlib('c') }}          # [not win]
+    - {{ posix }}filesystem      # [win]
     - {{ posix }}make
-    - {{ posix }}sed               # [win]
-    - {{ posix }}coreutils         # [win]
-    - {{ posix }}zip               # [win]
-    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - {{ posix }}sed             # [win]
+    - {{ posix }}coreutils       # [win]
+    - {{ posix }}zip             # [win]
+    - llvm-openmp                # [osx]
   host:
     - r-base
     - r-collapse >=2.1.5
@@ -43,6 +44,8 @@ requirements:
     - r-mirai >=2.5.2
     - r-progress >=1.2.3
     - r-sf >=1.0.0
+    - llvm-openmp                # [osx]
+    - libgomp                    # [linux]
   run:
     - r-base
     - r-collapse >=2.1.5
@@ -53,6 +56,7 @@ requirements:
     - r-mirai >=2.5.2
     - r-progress >=1.2.3
     - r-sf >=1.0.0
+    - llvm-openmp                # [osx]
 
 test:
   commands:
