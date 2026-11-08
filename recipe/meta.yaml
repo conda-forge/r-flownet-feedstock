@@ -1,4 +1,4 @@
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/flownet_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/flownet/flownet_{{ version }}.tar.gz
-  sha256: 525f8bbce0c00e65f5d216c6ba2d13b0755fa405fd31596788ff57248c59a16c
+  sha256: 3b7aecb20a25fa10effe4f30d63a7b79c62f05f05eb874b729e89048684baf3c
 
 build:
   number: 0
